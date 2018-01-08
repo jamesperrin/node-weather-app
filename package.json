@@ -1,0 +1,23 @@
+{
+  "name": "node-weather-app",
+  "version": "1.0.0",
+  "description": "This is a Node.js Weather app from Udmey course _The Complete Node.js Developer Course (2nd Edition)_.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamesperrin/node-weather-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jamesperrin/node-weather-app/issues"
+  },
+  "homepage": "https://github.com/jamesperrin/node-weather-app#readme",
+  "dependencies": {
+    "request": "^2.73.0"
+  }
+}
