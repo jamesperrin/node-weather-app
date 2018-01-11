@@ -1,9 +1,6 @@
 const request = require('request');
 
-var geocodeAddress = (address) => {
-  // const address = 'Spokane, WA';
-  //const address = argv.address;
-
+var geocodeAddress = (address, callback) => {
   // Check User input ensuring an address was provided.
   if (!address) {
     console.log('Address was not provided');
@@ -20,16 +17,17 @@ var geocodeAddress = (address) => {
     url: `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}`,
     json: true
   }, (error, response, body) => {
-
     // Validation
     if (error) {
-      console.log(`Unable to connect to Google servers.`);
+      callback('Unable to connect to Google servers.');
     } else if (body.status === 'ZERO_RESULTS') {
-      console.log(`Unable to find that address.`);
+      callback('Unable to find that address.');
     } else if (body.status === 'OK') {
-      console.log(`Address: ${body.results[0].formatted_address}`);
-      console.log(`Latitude: ${body.results[0].geometry.location.lat}`);
-      console.log(`Longitude: ${body.results[0].geometry.location.lng}`);
+      callback(undefined, {
+        address: body.results[0].formatted_address,
+        latitude: body.results[0].geometry.location.lat,
+        longitude: body.results[0].geometry.location.lng
+      });
     }
   });
 };
