@@ -1,12 +1,12 @@
 const config = require('../config/config');
 const request = require('request');
 
-var getWeather = (latitude, longitde, callback) => {
+var getWeather = (latitude, longitude, callback) => {
   let url = config.apiUrl;
   let apiKey = config.apiKeyValue;
   
   request({
-    url: `${url}/${apiKey}/${latitude},${longitde}`,
+    url: `${url}/${apiKey}/${latitude},${longitude}`,
     json: true
   }, (error, response, body) => {
 
